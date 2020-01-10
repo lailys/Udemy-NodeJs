@@ -71,18 +71,18 @@ exports.getCart = (req, res, next) => {
     .catch(err => console.log(err));
 };
 
-// exports.postCart = (req, res, next) => {
-//   const prodId = req.body.productId
-//   Product.findById(prodId)
-//     .then(product => {
-//       console.log(product);
-//       return req.session.user.addToCart(product);
-//     })
-//     // .then(result => {
-//       res.redirect('/cart');
-//     })
-//     .catch(err => console.log(err));
-// };
+exports.postCart = (req, res, next) => {
+  const prodId = req.body.productId
+  Product.findById(prodId)
+    .then(product => {
+      console.log(product);
+      return req.session.user.addToCart(product);
+    })
+    // .then(result => {
+      res.redirect('/cart');
+    })
+    .catch(err => console.log(err));
+};
 
 
 exports.postDeleteProduct = (req, res, next) => {
